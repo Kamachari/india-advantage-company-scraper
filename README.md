@@ -20,8 +20,8 @@ This section shows the end-to-end workflow of the project.
 
 <table>
   <tr>
-    <td><img src="screenshots/01_libraries_installed.png" width="100%"/></td>
-    <td><img src="screenshots/02_main_function_code.png" width="100%"/></td>
+    <td><img src="webscrapping/screenshots/01_libraries_installed.png" width="100%"/></td>
+    <td><img src="webscrapping/screenshots/02_main_function_code.png" width="100%"/></td>
   </tr>
 </table>
 
@@ -31,8 +31,8 @@ This section shows the end-to-end workflow of the project.
 
 <table>
   <tr>
-    <td><img src="screenshots/03_terminal_output.png" width="100%"/></td>
-    <td><img src="screenshots/04_final_excel_output.png" width="100%"/></td>
+    <td><img src="webscrapping/screenshots/03_terminal_output.png" width="100%"/></td>
+    <td><img src="webscrapping/screenshots/04_final_excel_output.png" width="100%"/></td>
   </tr>
 </table>
 
