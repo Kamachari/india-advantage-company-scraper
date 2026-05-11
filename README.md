@@ -1,200 +1,206 @@
-````markdown
-# 🚀 India Advantage Company Scraper
+# 📊 Company Lead Scraper (India Advantage)
 
-A high-performance, automated web scraping system built using Python and Playwright to extract structured company data from India Advantage directory listings. The project is designed to efficiently collect, clean, and export business intelligence data for analytics, lead generation, and research workflows.
-
-The scraper is optimized for speed, scalability, and data consistency using parallel processing and robust parsing techniques.
+A Python-based web scraping automation project that extracts company information from a directory website, cleans the data, and exports it into a structured Excel file for analysis and lead generation.
 
 ---
 
-# ✨ Features
+## 📌 Project Overview
 
-- 🔍 Automated scraping of company listings (A–Z directory traversal)
-- ⚡ Parallel execution using multi-threading for faster data extraction
-- 🧠 Structured parsing of company profiles (name, email, website, phone, industry, address)
-- 🧹 Intelligent data cleaning and normalization (phone, email, location formatting)
-- 📊 Deduplication and missing value handling
-- 🕒 Timestamp tracking for each record
-- 📁 Export to Excel (.xlsx) format for business use
-- 🛡️ Error handling for failed pages and network interruptions
-- 🔄 Scalable design supporting large dataset extraction
+This project automates the extraction of business leads from an online company directory (A–Z listing pages). It collects structured company details such as contact information, website, and industry, then processes and exports them into a clean Excel dataset.
 
 ---
 
-# 📦 Requirements & Installation
+## 📸 Project Screenshots
 
-## 🔧 Prerequisites
+This section shows the end-to-end workflow of the project.
 
-- Python 3.8+
-- pip package manager
+---
 
-## 📚 Install Dependencies
+### 1️⃣ Setup & Code Overview
 
-```bash
-pip install pandas beautifulsoup4 playwright openpyxl
+<table>
+  <tr>
+    <td><img src="screenshots/01_libraries_installed.png" width="100%"/></td>
+    <td><img src="screenshots/02_main_function_code.png" width="100%"/></td>
+  </tr>
+</table>
+
+---
+
+### 2️⃣ Execution & Output
+
+<table>
+  <tr>
+    <td><img src="screenshots/03_terminal_output.png" width="100%"/></td>
+    <td><img src="screenshots/04_final_excel_output.png" width="100%"/></td>
+  </tr>
+</table>
+
+---
+
+## 🧠 Script Workflow (Execution Flow)
+
+```text
+main()
+ ├── scrape_company_links()
+ │     └── Extract company profile URLs from listing pages (A–Z)
+ │
+ ├── scrape_company_details()
+ │     └── Extract detailed company information (email, phone, website, etc.)
+ │
+ ├── clean_data()
+ │     └── Clean and standardize data (remove duplicates, format fields)
+ │
+ └── save_excel()
+       └── Export final structured dataset into Excel file
 ````
 
-## 🌐 Install Playwright Browsers
+---
 
-```bash
-playwright install
-```
+## 📁 Sample Output Dataset
+
+| Sr. No | Company Name   | Email                                     | Website  | Phone      | Location       | Industry      | Timestamp           |
+| ------ | -------------- | ----------------------------------------- | -------- | ---------- | -------------- | ------------- | ------------------- |
+| 1      | ABC Pvt Ltd    | [info@abc.com](mailto:info@abc.com)       | abc.com  | 9876543210 | Telangana      | IT Services   | 2026-05-11 10:20:00 |
+| 2      | XYZ Industries | [contact@xyz.com](mailto:contact@xyz.com) | xyz.in   | 9123456780 | Karnataka      | Manufacturing | 2026-05-11 10:22:10 |
+| 3      | Tech Solutions | [hr@tech.com](mailto:hr@tech.com)         | tech.com | 9988776655 | Andhra Pradesh | Software      | 2026-05-11 10:25:30 |
 
 ---
 
-# ▶️ Usage
+## 🎯 Business Understanding
 
-Run the scraper using:
+The goal of this project is to automate lead generation by extracting publicly available company data.
 
-```bash
-python scraper.py
-```
+### Objectives:
 
-The script will:
+* Automate company data collection
+* Reduce manual lead generation effort
+* Build structured dataset for analytics and outreach
 
-1. Iterate through company listings (A–Z)
-2. Scrape up to 3 companies per letter
-3. Extract detailed profile data
-4. Clean and structure the dataset
-5. Export results into an Excel file
+### Challenges:
 
----
-
-## 🧪 Example Workflow
-
-```python
-if __name__ == "__main__":
-    main()
-```
+* Inconsistent phone formats
+* Missing or incomplete data
+* Slow page navigation
+* Duplicate records
 
 ---
 
-# ⚙️ Configuration
+## 📊 Data Understanding
 
-You can modify the scraping behavior using the following parameters:
+### Data Source:
 
-```python
-BASE_URL = "https://indiaadvantage.co.in/company-list"
-LETTERS = list("abcdefghijklmnopqrstuvwxyz")
-MAX_COMPANIES_PER_LETTER = 3
-OUTPUT_FILE = "cleaned_leads.xlsx"
-```
+* India Advantage Company Directory (A–Z pages)
 
-### 🔧 Performance Tuning
+### Extracted Fields:
 
-Inside `main()`:
-
-```python
-ThreadPoolExecutor(max_workers=5)
-```
-
-* Increase workers → faster scraping (risk of blocking)
-* Decrease workers → safer but slower execution
-
----
-
-# 📤 Output Format
-
-The final dataset is exported as an Excel file:
-
-### Columns:
-
-* Sr. No.
 * Company Name
-* Email
+* Email Address
 * Website
-* Phone
+* Phone Number
 * Address
 * Location
 * Industry
-* Timestamp
+
+### Future Improvements:
+
+* Email validation system
+* LinkedIn profile enrichment
+* Database integration (MySQL/PostgreSQL)
+* Parallel scraping optimization
 
 ---
 
-## 📊 Sample Output
+## 🛠️ Technologies Used
 
-| Sr. No. | Company Name | Email                               | Phone      | Location  |
-| ------- | ------------ | ----------------------------------- | ---------- | --------- |
-| 1       | ABC Pvt Ltd  | [info@abc.com](mailto:info@abc.com) | 9876543210 | Hyderabad |
-
----
-
-# ⚠️ Limitations & Ethical Considerations
-
-* ⚠️ This scraper is intended for educational and research purposes only
-* 📜 Users must comply with the target website’s Terms of Service
-* 🤖 Respect `robots.txt` rules and avoid excessive request rates
-* 🚫 High concurrency may lead to temporary IP blocking
-* ⏱️ Recommended delay or worker limit for safe scraping
+* Python 3.x
+* Playwright (Browser Automation)
+* BeautifulSoup (HTML Parsing)
+* Pandas (Data Processing)
+* Regex (Data Cleaning)
+* OpenPyXL (Excel Export)
 
 ---
 
-# 🛠️ Troubleshooting
+## ⚙️ Setup Instructions
 
-### ❌ Playwright not installed correctly
+### 1️⃣ Install dependencies
+
+```bash
+pip install pandas beautifulsoup4 playwright openpyxl
+```
+
+### 2️⃣ Install Playwright browsers
 
 ```bash
 playwright install
 ```
 
----
+### 3️⃣ Run script
 
-### ❌ Empty results
-
-* Check selectors (`div.companyname`, `compinform`)
-* Ensure website structure hasn’t changed
-
----
-
-### ❌ Slow execution
-
-* Reduce `wait_for_timeout`
-* Enable headless mode:
-
-```python
-headless=True
+```bash
+python script_name.py
 ```
 
 ---
 
-### ❌ Blocking issues
+## 🔄 Approach
 
-* Reduce `max_workers`
-* Add delay between requests
-* Use headless mode with stealth enhancements
+### Step 1: Data Collection
 
----
+* Scrape A–Z listing pages
+* Extract company profile URLs
 
-# 🤝 Contributing
+### Step 2: Data Extraction
 
-Contributions are welcome!
+* Visit each company profile page
+* Extract structured company details
 
-### Steps:
+### Step 3: Data Cleaning
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes with clear messages
-4. Submit a pull request
+* Remove duplicates
+* Normalize phone numbers and emails
+* Handle missing values
 
-Improvements in parsing accuracy, speed optimization, and scalability are highly encouraged.
+### Step 4: Data Export
 
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
+* Convert cleaned dataset into Excel format
 
 ---
 
-# 📬 Contact / Support
+## 📊 Data Insights
 
-For issues, suggestions, or collaboration:
+* ✔ Scraped across 26 alphabetical categories (A–Z)
+* ✔ Structured dataset generation pipeline
+* ✔ Duplicate removal implemented
+* ✔ Standardized contact formats
 
-* GitHub Issues: Create an issue in the repository
-* Email: [kamachariburagapalli@gmail.com](mailto:your-email@example.com)
+---
+
+## 🚀 Project Status
+
+🟡 In Progress (v1.0)
+
+### Completed:
+
+* Web scraping pipeline
+* Data cleaning system
+* Excel export automation
+
+### Upcoming:
+
+* Parallel scraping optimization
+* Database integration
+* Streamlit dashboard visualization
 
 ---
 
+## 👨‍💻 Credits
 
----
+* India Advantage (data source)
+* Python open-source community
+* Playwright contributors
+* BeautifulSoup & Pandas libraries
+
+```
 ```
